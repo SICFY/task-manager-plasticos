@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Mi Perfil{% endblock %}
+{% block content %}
+<div class="row justify-content-center"><div class="col-md-7">
+  <div class="card shadow-sm">
+    <div class="card-header py-3" style="background:#1a4a7c;color:white;"><h5 class="mb-0">Mi Perfil</h5></div>
+    <div class="card-body p-4 text-center">
+      <div class="bg-secondary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-2" style="width:80px;height:80px;font-size:2rem;">{{ current_user.full_name[0].upper() }}</div>
+      <h4>{{ current_user.full_name }}</h4>
+      <table class="table table-borderless text-start">
+        <tr><th>Usuario:</th><td>@{{ current_user.username }}</td></tr>
+        <tr><th>Correo:</th><td>{{ current_user.email }}</td></tr>
+        <tr><th>Rol:</th><td>{{ current_user.role }}</td></tr>
+        <tr><th>Tareas creadas:</th><td>{{ total_created }}</td></tr>
+        <tr><th>Completadas:</th><td class="text-success">{{ completed }}</td></tr>
+        <tr><th>Pendientes:</th><td class="text-warning">{{ pending }}</td></tr>
+      </table>
+      <div class="d-flex gap-2 justify-content-center">
+        <a href="{{ url_for('users.edit_profile') }}" class="btn text-white" style="background:#1a4a7c;">Editar Perfil</a>
+        <a href="{{ url_for('users.change_password') }}" class="btn btn-outline-secondary">Cambiar Contraseña</a>
+      </div>
+    </div>
+  </div>
+</div></div>
+{% endblock %}

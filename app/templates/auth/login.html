@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Iniciar Sesión{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-5">
+    <div class="card shadow-sm mt-5">
+      <div class="card-header text-center py-3" style="background:#1a4a7c;color:white;">
+        <h4 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i>Iniciar Sesión</h4>
+      </div>
+      <div class="card-body p-4">
+        <form method="POST">
+          <div class="mb-3"><label class="form-label fw-semibold">Usuario</label>
+            <input type="text" name="username" class="form-control" required autofocus></div>
+          <div class="mb-3"><label class="form-label fw-semibold">Contraseña</label>
+            <input type="password" name="password" class="form-control" required></div>
+          <button type="submit" class="btn w-100 text-white" style="background:#1a4a7c;">Entrar</button>
+        </form>
+        <hr><p class="text-center mb-0">¿No tienes cuenta? <a href="{{ url_for('auth.register') }}">Regístrate</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
